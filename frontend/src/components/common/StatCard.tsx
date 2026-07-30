@@ -150,9 +150,9 @@ export function StatCard({
           ) : hasTrend ? (
             <Stack
               direction="row"
-              alignItems="center"
               spacing={0.5}
-              sx={{
+                sx={{
+                alignItems: 'center',
                 justifySelf: 'end',
                 flexShrink: 0,
                 px: 1.25,
