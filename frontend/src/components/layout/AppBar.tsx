@@ -33,7 +33,7 @@ export function AppBar({ onMenuClick }: AppBarProps) {
         color: chrome.text,
       }}
     >
-      <Toolbar sx={{ gap: 1 }}>
+      <Toolbar sx={{ gap: { xs: 0.5, sm: 1 }, px: { xs: 1, sm: 2 } }}>
         <IconButton
           color="inherit"
           aria-label="Sidebar umschalten"
@@ -50,6 +50,7 @@ export function AppBar({ onMenuClick }: AppBarProps) {
             display: 'flex',
             alignItems: 'center',
             textDecoration: 'none',
+            minWidth: 0,
           }}
         >
           <Box
@@ -59,7 +60,7 @@ export function AppBar({ onMenuClick }: AppBarProps) {
             sx={{
               display: 'block',
               width: 'auto',
-              height: 70,
+              height: { xs: 40, sm: 56, md: 70 },
               objectFit: 'contain',
             }}
           />
