@@ -21,8 +21,8 @@ export const status = {
 } as const;
 
 export const surface = {
-  default: '#EDEFF1',
-  paper: '#FFFFFF',
+  default: '#edeff165',
+  paper: '#ffffff',
   textPrimary: '#1E2328',
   textSecondary: '#5B6169',
   divider: '#E2E4E6',

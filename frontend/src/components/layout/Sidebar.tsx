@@ -9,6 +9,7 @@ import { navItems, Types, type NavItem } from './navItems';
 import Divider from '@mui/material/Divider';
 
 export const DRAWER_WIDTH = 220;
+export const COLLAPSED_DRAWER_WIDTH = DRAWER_WIDTH / 4;
 
 interface SidebarProps {
   open: boolean;
@@ -69,7 +70,7 @@ export function Sidebar({ open }: SidebarProps) {
       component="nav"
       aria-label="Sidebar Navigation"
       sx={{
-        width: open ? DRAWER_WIDTH : 0,
+        width: open ? DRAWER_WIDTH : COLLAPSED_DRAWER_WIDTH,
         flexShrink: 0,
         overflow: 'hidden',
         bgcolor: chrome.bg,
