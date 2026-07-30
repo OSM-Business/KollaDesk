@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Outlet, useNavigate, useParams } from 'react-router-dom';
 import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
@@ -13,9 +14,8 @@ import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined';
 import ViewModuleOutlinedIcon from '@mui/icons-material/ViewModuleOutlined';
 import ViewListOutlinedIcon from '@mui/icons-material/ViewListOutlined';
 import AccountTreeOutlinedIcon from '@mui/icons-material/AccountTreeOutlined';
-import FolderOutlinedIcon from '@mui/icons-material/FolderOutlined';
 import { gewerke, kategorien, projects } from './data';
-import { FolderItems } from './FolderTile';
+import { ProjectTree } from './ProjectTree';
 
 const VIEW_MODE_KEY = 'kolladesk:projects:viewMode';
 
@@ -60,8 +60,12 @@ export function ProjectsLayout() {
 
   return (
     <Box>
-      <Stack direction="row" spacing={1} sx={{ mb: 3, alignItems: 'center', justifyContent: 'space-between' }}>
-        <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
+      <Stack
+        direction="row"
+        spacing={1}
+        sx={{ mb: 3, alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', rowGap: 1 }}
+      >
+        <Stack direction="row" spacing={1} sx={{ alignItems: 'center', minWidth: 0, flexWrap: 'wrap' }}>
           {backPath && (
             <IconButton size="small" onClick={() => navigate(backPath)} aria-label="Zurück">
               <ArrowBackOutlinedIcon fontSize="small" />
@@ -103,24 +107,16 @@ export function ProjectsLayout() {
       </Stack>
 
       {viewMode === 'baum' ? (
-        <Stack direction="row" sx={{ gap: 2 }}>
-          <Box sx={{ width: 280, flexShrink: 0 }}>
-            <FolderItems
-              compact
-              items={projects.map((p) => ({
-                id: p.id,
-                icon: <FolderOutlinedIcon />,
-                label: p.name,
-                onClick: () => navigate(`/projects/${p.id}`),
-                active: p.id === projectId,
-              }))}
-            />
+        <Stack direction={{ xs: 'column', md: 'row' }} sx={{ gap: 2 }}>
+          <Card
+            variant="outlined"
+            sx={{ width: { xs: '100%', md: 260 }, flexShrink: 0, p: 1, alignSelf: { xs: 'stretch', md: 'flex-start' } }}
+          >
+            <ProjectTree />
+          </Card>
+          <Box sx={{ flex: 1, minWidth: 0 }}>
+            <Outlet context={{ compact: false }} />
           </Box>
-          {projectId && (
-            <Box sx={{ flex: 1, minWidth: 0 }}>
-              <Outlet context={{ compact: true }} />
-            </Box>
-          )}
         </Stack>
       ) : (
         <Outlet context={{ compact: viewMode === 'liste' }} />

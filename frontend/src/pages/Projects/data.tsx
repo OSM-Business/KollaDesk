@@ -2,6 +2,8 @@ import type { ReactNode } from 'react';
 import FactCheckOutlinedIcon from '@mui/icons-material/FactCheckOutlined';
 import ReceiptLongOutlinedIcon from '@mui/icons-material/ReceiptLongOutlined';
 import StraightenOutlinedIcon from '@mui/icons-material/StraightenOutlined';
+import FolderOutlinedIcon from '@mui/icons-material/FolderOutlined';
+import EngineeringOutlinedIcon from '@mui/icons-material/EngineeringOutlined';
 
 export interface Project {
   id: string;
@@ -47,3 +49,33 @@ export const kategorien: Kategorie[] = [
   { id: 'rechnungen', label: 'Rechnungen', icon: <ReceiptLongOutlinedIcon /> },
   { id: 'aufmass', label: 'Aufmaßblätter', icon: <StraightenOutlinedIcon /> },
 ];
+
+// Für die Baum-Ansicht: die gesamte Hierarchie einmal vorab zu Knoten aufbauen.
+export interface TreeNode {
+  id: string;
+  label: string;
+  icon: ReactNode;
+  path: string;
+  children?: TreeNode[];
+}
+
+export const projectTree: TreeNode[] = projects.map((project) => ({
+  id: project.id,
+  label: project.name,
+  icon: <FolderOutlinedIcon />,
+  path: `/projects/${project.id}`,
+  children: gewerke
+    .filter((gewerk) => gewerk.projectId === project.id)
+    .map((gewerk) => ({
+      id: gewerk.id,
+      label: gewerk.name,
+      icon: <EngineeringOutlinedIcon />,
+      path: `/projects/${project.id}/${gewerk.id}`,
+      children: kategorien.map((kategorie) => ({
+        id: kategorie.id,
+        label: kategorie.label,
+        icon: kategorie.icon,
+        path: `/projects/${project.id}/${gewerk.id}/${kategorie.id}`,
+      })),
+    })),
+}));

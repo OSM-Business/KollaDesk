@@ -4,6 +4,7 @@ import Stack from '@mui/material/Stack';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
@@ -137,34 +138,36 @@ export function Dashboard() {
             description="Sobald eine Teilrechnung hochgeladen wird, erscheint sie hier."
           />
         ) : (
-          <Table size="small">
-            <TableHead>
-              <TableRow>
-                <TableCell>Projekt</TableCell>
-                <TableCell>Rechnung</TableCell>
-                <TableCell align="right">Betrag</TableCell>
-                <TableCell>Datum</TableCell>
-                <TableCell align="right">Status</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {recentReviews.map((row) => (
-                <TableRow key={row.id} hover>
-                  <TableCell>{row.projekt}</TableCell>
-                  <TableCell>
-                    <NumericValue>{row.rechnungsnummer}</NumericValue>
-                  </TableCell>
-                  <TableCell align="right">
-                    <NumericValue>{formatCurrency(row.betrag)}</NumericValue>
-                  </TableCell>
-                  <TableCell>{formatDate(row.datum)}</TableCell>
-                  <TableCell align="right">
-                    <StatusChip status={row.status} />
-                  </TableCell>
+          <TableContainer sx={{ overflowX: 'auto' }}>
+            <Table size="small">
+              <TableHead>
+                <TableRow>
+                  <TableCell>Projekt</TableCell>
+                  <TableCell>Rechnung</TableCell>
+                  <TableCell align="right">Betrag</TableCell>
+                  <TableCell>Datum</TableCell>
+                  <TableCell align="right">Status</TableCell>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+              </TableHead>
+              <TableBody>
+                {recentReviews.map((row) => (
+                  <TableRow key={row.id} hover>
+                    <TableCell>{row.projekt}</TableCell>
+                    <TableCell>
+                      <NumericValue>{row.rechnungsnummer}</NumericValue>
+                    </TableCell>
+                    <TableCell align="right">
+                      <NumericValue>{formatCurrency(row.betrag)}</NumericValue>
+                    </TableCell>
+                    <TableCell>{formatDate(row.datum)}</TableCell>
+                    <TableCell align="right">
+                      <StatusChip status={row.status} />
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
         )}
       </Card>
     </Box>
