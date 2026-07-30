@@ -1,14 +1,14 @@
-import Grid from '@mui/material/Grid';
-import { StatCard } from '../../components/common/StatCard';
-import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
-import FolderIcon from '@mui/icons-material/Folder';
-import ContentPasteGoIcon from '@mui/icons-material/ContentPasteGo';
+// import Grid from '@mui/material/Grid';
+// import { StatCard } from '../../components/common/StatCard';
+// import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+// import FolderIcon from '@mui/icons-material/Folder';
+// import ContentPasteGoIcon from '@mui/icons-material/ContentPasteGo';
 import Box from '@mui/material/Box';
 
 const Admin = () => {
   return (
     <Box>
-      <Grid container spacing={2}>
+      {/* <Grid container spacing={2}>
         <Grid size={{ xs: 12, md: 4 }}>
           <StatCard
             label="Benutzer"
@@ -41,7 +41,7 @@ const Admin = () => {
             chartValues={[0, 2, 3, 4, 6, 8, 7, 9, 15, 6, 8, 7, 12]}
           />
         </Grid>
-      </Grid>
+      </Grid> */}
     </Box>
   );
 };
