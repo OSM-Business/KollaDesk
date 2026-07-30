@@ -49,7 +49,6 @@ export const kategorien: Kategorie[] = [
   { id: 'rechnungen', label: 'Rechnungen', icon: <ReceiptLongOutlinedIcon /> },
   { id: 'aufmass', label: 'Aufmaßblätter', icon: <StraightenOutlinedIcon /> },
 ];
-
 // Für die Baum-Ansicht: die gesamte Hierarchie einmal vorab zu Knoten aufbauen.
 export interface TreeNode {
   id: string;
