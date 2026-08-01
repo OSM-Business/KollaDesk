@@ -25,3 +25,4 @@ Thumbs.db
 # Lokale Docker-Daten
 infra/data/
 '@ | Set-Content -Encoding UTF8 .gitignore
+!.env.example
