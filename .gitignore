@@ -1,0 +1,27 @@
+docs/*
+# Root-.gitignore für den Monorepo
+@'
+# .NET
+bin/
+obj/
+*.user
+
+# Node
+node_modules/
+dist/
+.vite/
+
+# Env & Secrets
+.env
+.env.*
+appsettings.*.local.json
+
+# IDE / OS
+.vs/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Lokale Docker-Daten
+infra/data/
+'@ | Set-Content -Encoding UTF8 .gitignore
