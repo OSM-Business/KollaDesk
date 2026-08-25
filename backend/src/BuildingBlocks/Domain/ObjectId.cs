@@ -13,9 +13,9 @@ public sealed record ObjectId
 
     public static ObjectId New(string prefix)
     {
-        var p = prefix.Trim().ToUpperInvariant();
-        var hex = Guid.CreateVersion7().ToString("N");
-        return new ObjectId(p, $"{p}-{hex}");
+        var normalizedPrefix = prefix.Trim().ToUpperInvariant();
+        var hex = Guid.CreateVersion7().ToString("N"); // 32 hex chars, no dashes
+        return new ObjectId(normalizedPrefix, $"{normalizedPrefix}-{hex}");
     }
 
     public override string ToString() => Value;
