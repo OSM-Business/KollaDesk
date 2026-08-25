@@ -1,5 +1,3 @@
-# README-Stub
-@'
 # KollaDesk
 
 Modularer Monolith (ASP.NET Core .NET 10, PostgreSQL 18) + React/Vite/MUI-Frontend.
