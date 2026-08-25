@@ -39,6 +39,13 @@ KollaDesk/
 
 ## Getting started
 
+Clone the repository:
+
+```bash
+git clone https://github.com/<your-username>/kolladesk.git
+cd kolladesk
+```
+
 **1. Start local infrastructure** (PostgreSQL, MinIO, Mailpit):
 
 ```bash
@@ -73,6 +80,13 @@ Vite serves the app at http://localhost:5173.
 cd backend && dotnet test      # backend
 cd frontend && npx vitest run  # frontend
 ```
+
+## Deployment
+
+- **Frontend:** static build deployed to Cloudflare —
+  https://kolladesk.mansourminaww.workers.dev/ (currently a UI preview).
+- **Backend:** a .NET container, hosted separately in the EU (GDPR).
+  Cloudflare Workers cannot run the .NET runtime, so the API is not deployed there.
 
 ## Development
 
