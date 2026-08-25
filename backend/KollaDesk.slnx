@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/apps/">
+    <Project Path="apps/KollaDesk.Api/KollaDesk.Api.csproj" />
+  </Folder>
   <Folder Name="/src/" />
   <Folder Name="/src/BuildingBlocks/" />
   <Folder Name="/src/BuildingBlocks/Domain/">
