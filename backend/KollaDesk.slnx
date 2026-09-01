@@ -7,6 +7,9 @@
   <Folder Name="/src/BuildingBlocks/Domain/">
     <Project Path="src/BuildingBlocks/Domain/KollaDesk.BuildingBlocks.Domain.csproj" />
   </Folder>
+  <Folder Name="/src/BuildingBlocks/Infrastructure/">
+    <Project Path="src/BuildingBlocks/Infrastructure/KollaDesk.BuildingBlocks.Infrastructure.csproj" />
+  </Folder>
   <Folder Name="/tests/" />
   <Folder Name="/tests/Unit/">
     <Project Path="tests/Unit/KollaDesk.UnitTests.csproj" />
