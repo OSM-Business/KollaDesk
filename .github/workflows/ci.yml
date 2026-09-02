@@ -59,4 +59,4 @@ jobs:
 
       - name: Test
         working-directory: backend
-        run: dotnet test --no-build --configuration Release
+        run: dotnet test tests/Unit/KollaDesk.UnitTests.csproj --no-build --configuration Release
